@@ -117,11 +117,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 startPlayerAnimation()
                 
+                updateCamera()
+                
             } else {
                 player!.physicsBody!.resting = true
                 
                 stopPlayerAnimation()
             }
+        }
+    }
+    
+    func updateCamera(){
+        if let camera = camera {
+            camera.position = CGPointMake(player!.position.x, player!.position.y)
         }
     }
     
