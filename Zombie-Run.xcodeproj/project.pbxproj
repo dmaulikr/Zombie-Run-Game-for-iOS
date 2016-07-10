@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		996FE4FC1D32CD820026A36D /* scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 996FE4FB1D32CD820026A36D /* scream.mp3 */; };
+		996FE4FE1D32CDB40026A36D /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996FE4FD1D32CDB40026A36D /* MenuScene.swift */; };
 		99B8F1711D318F7900A3F78A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B8F1701D318F7900A3F78A /* AppDelegate.swift */; };
 		99B8F1731D318F7900A3F78A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 99B8F1721D318F7900A3F78A /* GameScene.sks */; };
 		99B8F1751D318F7900A3F78A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B8F1741D318F7900A3F78A /* GameScene.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		996FE4FB1D32CD820026A36D /* scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scream.mp3; sourceTree = "<group>"; };
+		996FE4FD1D32CDB40026A36D /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		99B8F16D1D318F7900A3F78A /* Zombie-Run.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zombie-Run.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B8F1701D318F7900A3F78A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99B8F1721D318F7900A3F78A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -85,8 +89,10 @@
 		99B8F16F1D318F7900A3F78A /* Zombie-Run */ = {
 			isa = PBXGroup;
 			children = (
+				996FE4FB1D32CD820026A36D /* scream.mp3 */,
 				99B8F1701D318F7900A3F78A /* AppDelegate.swift */,
 				99B8F1721D318F7900A3F78A /* GameScene.sks */,
+				996FE4FD1D32CDB40026A36D /* MenuScene.swift */,
 				99B8F1741D318F7900A3F78A /* GameScene.swift */,
 				99B8F1761D318F7900A3F78A /* GameViewController.swift */,
 				99B8F1781D318F7900A3F78A /* Main.storyboard */,
@@ -194,6 +200,7 @@
 				99B8F1C71D31BEC600A3F78A /* Room.sks in Resources */,
 				99B8F1731D318F7900A3F78A /* GameScene.sks in Resources */,
 				99B8F17F1D318F7900A3F78A /* LaunchScreen.storyboard in Resources */,
+				996FE4FC1D32CD820026A36D /* scream.mp3 in Resources */,
 				99B8F17C1D318F7900A3F78A /* Assets.xcassets in Resources */,
 				99B8F1C51D31BE5600A3F78A /* Wall.sks in Resources */,
 				99B8F17A1D318F7900A3F78A /* Main.storyboard in Resources */,
@@ -215,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99B8F1751D318F7900A3F78A /* GameScene.swift in Sources */,
+				996FE4FE1D32CDB40026A36D /* MenuScene.swift in Sources */,
 				99B8F1771D318F7900A3F78A /* GameViewController.swift in Sources */,
 				99B8F1711D318F7900A3F78A /* AppDelegate.swift in Sources */,
 			);
@@ -407,6 +415,7 @@
 				99B8F1901D318F7900A3F78A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		99B8F1911D318F7900A3F78A /* Build configuration list for PBXNativeTarget "Zombie-RunTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +424,7 @@
 				99B8F1931D318F7900A3F78A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
