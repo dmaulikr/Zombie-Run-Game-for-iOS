@@ -162,7 +162,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func gameOver(){
-        print("game Ended");
+//        print("game Ended");
+        let menuScene = MenuScene(size: self.size)
+        menuScene.soundToPlay = "scream.mp3"
+        let transition = SKTransition.flipVerticalWithDuration(1.0)
+        menuScene.scaleMode = SKSceneScaleMode.AspectFill
+        self.scene!.view?.presentScene(menuScene, transition: transition)
     }
     
     

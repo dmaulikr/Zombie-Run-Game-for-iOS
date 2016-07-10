@@ -13,4 +13,30 @@ class MenuScene: SKScene {
     var soundToPlay: String?
     var label: SKLabelNode?
     
+    override func didMoveToView(view: SKView) {
+        self.backgroundColor = SKColor(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        label = SKLabelNode(text: "You Are killed, Try Again!")
+        
+        label!.fontName = "AvenirNext-Bold"
+        label!.fontSize = 55
+        label!.fontColor = UIColor.whiteColor()
+        label!.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))
+        
+        if let soundToPlay = soundToPlay {
+            self.runAction(SKAction.playSoundFileNamed(soundToPlay, waitForCompletion: false))
+        }
+        
+        self.addChild(label!)
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let gameScene = GameScene(fileNamed: "GameScene")
+        
+        let transition = SKTransition.flipVerticalWithDuration(1.0)
+        let sKview = self.view as SKView!
+        gameScene?.scaleMode = .AspectFill
+        sKview.presentScene(gameScene!, transition: transition)
+    }
+    
 }
