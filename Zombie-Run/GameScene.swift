@@ -11,12 +11,13 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let playerSpeed: CGFloat = 170.0
-    
     let zombieSpeed: CGFloat = 100.0
     
-    var player: SKSpriteNode?
     
+    var player: SKSpriteNode?
     var zombies: [SKSpriteNode] = []
+    var portal: SKSpriteNode?
+    
     
     var lastTouch: CGPoint? = nil
     
@@ -53,6 +54,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         zombieTextures.append(zombieTextures[2])
         zombieTextures.append(zombieTextures[1])
+        
+        portal = self.childNodeWithName("portal") as? SKSpriteNode
+        
         
     }
     
@@ -156,32 +160,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
+        // When player hits a zombie (lose game)
         if firstBody.categoryBitMask == player?.physicsBody?.categoryBitMask && secondBody.categoryBitMask == zombies[0].physicsBody?.categoryBitMask {
-            gameOver();
+            gameOver(false);
         }
+        
+        // When player hits a portal (win game)
+        if firstBody.categoryBitMask == player?.physicsBody?.categoryBitMask && secondBody.categoryBitMask == portal?.physicsBody?.categoryBitMask {
+            gameOver(true);
+        }
+        
     }
     
-    private func gameOver(){
-//        print("game Ended");
+    // Detect how the current game ended
+    private func gameOver(didWin: Bool){
         let menuScene = MenuScene(size: self.size)
-        menuScene.soundToPlay = "scream.mp3"
+        menuScene.soundToPlay = didWin ? "win.mp3" : "scream.mp3"
+        menuScene.gameFinished = didWin ? true : false
         let transition = SKTransition.flipVerticalWithDuration(1.0)
         menuScene.scaleMode = SKSceneScaleMode.AspectFill
         self.scene!.view?.presentScene(menuScene, transition: transition)
     }
     
     
+    // this function add to the "Hero" the walking animation
     func startPlayerAnimation(){
         if player!.actionForKey("animation") == nil {
             let playerAnimation = SKAction.animateWithTextures(playerTextures, timePerFrame: 0.1)
             player!.runAction(SKAction.repeatActionForever(playerAnimation), withKey: "animation")
         }
     }
-    
+    // Stop ny remove the animation over the "Hero"
     func stopPlayerAnimation() {
         player!.removeActionForKey("animation")
     }
     
+    // this function add to the Zombie the walking animation
+    // NOTE: Zombies never stop, then you not need to have stopZombieAnimation()
     func startZombieAnimation(){
         
         for zombie in zombies {
@@ -190,7 +205,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 zombie.runAction(SKAction.repeatActionForever(zombieAnimation), withKey: "animation")
             }
         }
-        
     }
     
 }

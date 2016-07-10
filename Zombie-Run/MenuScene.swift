@@ -12,11 +12,16 @@ import SpriteKit
 class MenuScene: SKScene {
     var soundToPlay: String?
     var label: SKLabelNode?
+    var gameFinished: Bool?
     
     override func didMoveToView(view: SKView) {
         self.backgroundColor = SKColor(red: 0, green: 0, blue: 0, alpha: 1)
         
-        label = SKLabelNode(text: "You Are killed, Try Again!")
+        if gameFinished! {
+            label = SKLabelNode(text: "You Won, Great!")
+        }else{
+            label = SKLabelNode(text: "You Are killed, Try Again!")
+        }
         
         label!.fontName = "AvenirNext-Bold"
         label!.fontSize = 55
